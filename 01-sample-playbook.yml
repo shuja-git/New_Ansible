@@ -1,0 +1,6 @@
+- name: Demo playbook
+  hosts: all
+  tasks:
+    - name: Task1
+      ansible.builtin.debug:
+      msg: Hell from playbook1

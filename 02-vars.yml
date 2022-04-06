@@ -33,3 +33,10 @@
         msg: "{{URL}}"
       vars:
         URL: second.example.com
+
+- name: Play for inventory levl var
+  hosts: all
+  tasks:
+    - name: task for inv var
+      ansible.builtin.debug:
+        msg: "{{URL}}"

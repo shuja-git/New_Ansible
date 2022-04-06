@@ -9,4 +9,4 @@
         msg: "{{URL}}"
     - name: Task2
       ansible.builtin.debug:
-        msg: "{{a}}"
+        msg: "{{a}}" "{{a}}"

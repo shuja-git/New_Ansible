@@ -40,3 +40,10 @@
     - name: task for inv var
       ansible.builtin.debug:
         msg: "{{URL}}"
+
+- name: Play for command line variables
+  hosts: all
+  tasks:
+    - name: task of command line vars
+      ansible.builtin.debug:
+        msg: "{{URL}}"

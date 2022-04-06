@@ -64,7 +64,7 @@
       register: out
     - name: task for print register var
       ansible.builtin.debug:
-        msg: "{{out}}"
+        msg: "{{out.stdout}}"
 
 
 

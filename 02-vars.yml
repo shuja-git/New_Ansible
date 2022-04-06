@@ -12,6 +12,11 @@
     - name: Task2
       ansible.builtin.debug:
         msg: "{{a}}"
+- name: vars from file
+  hosts: all
+  vars_files:
+    - 02-sample-vars
+  tasks:
     - name: Var from file
       ansible.builtin.debug:
         msg: "{{URL}}"

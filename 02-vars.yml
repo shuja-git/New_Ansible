@@ -3,10 +3,15 @@
   vars:
     URL: play.example.com
     a: 10000
+  vars_files:
+    - 02-sample-vars
   tasks:
     - name: Task1
       ansible.builtin.debug:
         msg: "{{URL}}"
     - name: Task2
       ansible.builtin.debug:
-        msg: "{{a}}", "{{a}}"
+        msg: "{{a}}"
+    - name: Var from file
+      ansible.builtin.debug:
+        msg: "{{URL}}"

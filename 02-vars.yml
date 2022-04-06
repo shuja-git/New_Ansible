@@ -14,7 +14,7 @@
 - name: vars from file
   hosts: all
   vars_files:
-    - 02-sample-vars
+    - 02-sample-vars.yml
   tasks:
     - name: Var from file
       ansible.builtin.debug:

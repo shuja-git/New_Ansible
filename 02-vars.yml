@@ -65,8 +65,12 @@
     - name: task for print register var
       ansible.builtin.debug:
         msg: "{{out.stdout}}"
-
-
+    - name: task for standard variable
+      ansible.builtin.set_fact:
+        CMD_OUTPUT: "{{out.stdout}}"
+    - name: task to print std var
+      ansible.builtin.debug:
+        msg: CMD_OUTPUT
 
 
 

@@ -29,7 +29,7 @@
       vars:
         URL: one.example.com
     - name: URL2 var of task2
-      ansible.builitin.debug:
+      ansible.builtin.debug:
         msg: "{{URL}}"
       vars:
         URL: second.example.com

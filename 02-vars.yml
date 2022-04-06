@@ -47,3 +47,10 @@
     - name: task of command line vars
       ansible.builtin.debug:
         msg: "{{URL}}"
+
+- name: Play for Facts var
+  hosts: all
+  tasks:
+    - name: task for Fact var
+      ansible.builtin.debug:
+        msg: Host name={{ansible_hostname}}

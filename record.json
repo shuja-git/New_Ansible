@@ -1,0 +1,6 @@
+{
+  "ImageId": "ami-0bb6af715826253bf",
+  "KeyName": "my-key-pair",
+  "SecurityGroupIds": [ "sg-08a18776323545c66" ],
+  "InstanceType": "t3.micro"
+}

@@ -11,7 +11,7 @@
       ansible.builtin.debug:
         msg: "{{a}}"
 
-- name: vars from file
+- name: Play for vars from file
   hosts: all
   vars_files:
     - 02-sample-vars.yml
@@ -19,3 +19,17 @@
     - name: Var from file
       ansible.builtin.debug:
         msg: "{{URL}}"
+
+- name: Play for task level vars
+  hosts: all
+  tasks:
+    - name: URL1 var of task1
+      ansible.builtin.debug:
+        msg: "{{URL}"
+      vars:
+        URL: one.example.com
+    - name: URL2 var of task2
+      ansible.builitin.debug:
+        msg: "{{URL}}"
+      vars:
+        URL: second.example.com

@@ -1,56 +1,73 @@
-- name: Play level variables
-  hosts: all
-  vars:
-    URL: play.example.com
-    a: 10000
-  tasks:
-    - name: Task1
-      ansible.builtin.debug:
-        msg: "{{URL}}"
-    - name: Task2
-      ansible.builtin.debug:
-        msg: "{{a}}"
+#- name: Play level variables
+#  hosts: all
+#  vars:
+#    URL: play.example.com
+#    a: 10000
+#  tasks:
+#    - name: Task1
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#    - name: Task2
+#      ansible.builtin.debug:
+#        msg: "{{a}}"
+#
+#- name: Play for vars from file
+#  hosts: all
+#  vars_files:
+#    - 02-sample-vars.yml
+#  tasks:
+#    - name: Var from file
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#
+#- name: Play for task level vars
+#  hosts: all
+#  tasks:
+#    - name: URL1 var of task1
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#      vars:
+#        URL: one.example.com
+#    - name: URL2 var of task2
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#      vars:
+#        URL: second.example.com
+#
+#- name: Play for inventory levl var
+#  hosts: all
+#  tasks:
+#    - name: task for inv var
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#
+#- name: Play for command line variables
+#  hosts: all
+#  tasks:
+#    - name: task of command line vars
+#      ansible.builtin.debug:
+#        msg: "{{URL}}"
+#
+#- name: Play for Facts var
+#  hosts: all
+#  tasks:
+#    - name: task for Fact var
+#      ansible.builtin.debug:
+#        msg: Host name={{ansible_hostname}}, FQDN={{ansible_fqdn}}
+#--------------------------
 
-- name: Play for vars from file
+- name: Play for runtime vars
   hosts: all
-  vars_files:
-    - 02-sample-vars.yml
   tasks:
-    - name: Var from file
+    - name: task for register vars
+      ansible.builtin.shell: uptime
+      register: out
+    - name: task for print register var
       ansible.builtin.debug:
-        msg: "{{URL}}"
+        msg: {{out}}
 
-- name: Play for task level vars
-  hosts: all
-  tasks:
-    - name: URL1 var of task1
-      ansible.builtin.debug:
-        msg: "{{URL}}"
-      vars:
-        URL: one.example.com
-    - name: URL2 var of task2
-      ansible.builtin.debug:
-        msg: "{{URL}}"
-      vars:
-        URL: second.example.com
 
-- name: Play for inventory levl var
-  hosts: all
-  tasks:
-    - name: task for inv var
-      ansible.builtin.debug:
-        msg: "{{URL}}"
 
-- name: Play for command line variables
-  hosts: all
-  tasks:
-    - name: task of command line vars
-      ansible.builtin.debug:
-        msg: "{{URL}}"
 
-- name: Play for Facts var
-  hosts: all
-  tasks:
-    - name: task for Fact var
-      ansible.builtin.debug:
-        msg: Host name={{ansible_hostname}}, FQDN={{ansible_fqdn}}
+
+

@@ -3,7 +3,7 @@
 #
 #  # cd /usr/share/nginx/html
 #  # rm -rf *
-#  # unzip /tmp/frontend.zip
+
 #  # mv frontend-main/* .
 #  # mv static/* .
 #  # rm -rf frontend-master static README.md
@@ -26,4 +26,13 @@
     remote_src: yes
 
 
+- name:Remove old HTML content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
 
+- name: Copy HTML Files
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes

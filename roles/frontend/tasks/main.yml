@@ -1,5 +1,29 @@
+# systemctl enable nginx
+# systemctl start nginx
+#
+#  # cd /usr/share/nginx/html
+#  # rm -rf *
+#  # unzip /tmp/frontend.zip
+#  # mv frontend-main/* .
+#  # mv static/* .
+#  # rm -rf frontend-master static README.md
+#  # mv localhost.conf /etc/nginx/default.d/roboshop.conf
+#  Finally restart the service once to effect the changes.
+
+# systemctl restart nginx
+
+
+#---------------------------------------
 - name: Install Nginx
   ansible.builtin.yum:
     name: nginx
     state: installed
+
+- name: Download and Unzip the Frontend content
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+
 

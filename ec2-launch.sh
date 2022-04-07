@@ -17,7 +17,7 @@ fi
 TEMP_ID="lt-0041090f0ef82990e"
 VER=6
 ZONE_ID=Z02080483A5K2UWOFAMM5
-aws ec2 run-instances --launch-template LaunchTemplateId=${TEMP_ID},Version=${VER} --tag-specifications "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=${COMPONENT}]" "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}]" | jq
+aws ec2 run-instances --launch-template LaunchTemplateId=${TEMP_ID},Version=${VER} --tag-specifications "ResourceType=spot-instances-request,Tags=[{Key=Name,Value=${COMPONENT}}]" "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}]" | jq
 
 IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=frontend" | jq .Reservations[].Instances[].PrivateIpAddress | sed 's/"//g')
 

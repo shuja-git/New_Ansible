@@ -26,7 +26,7 @@
     remote_src: yes
 
 
-- name:Remove old HTML content
+- name: Remove old HTML content
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent

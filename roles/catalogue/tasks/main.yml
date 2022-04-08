@@ -46,6 +46,12 @@
     remote_src: yes
   become_user: roboshop
 
+- name: Install npm
+  ansible.builtin.yum:
+    name: npm
+    state: installed
+  become_user: roboshop
+
 - name: Install Nodejs Dependencies.
   community.general.npm:
     path: /home/roboshop/catalogue

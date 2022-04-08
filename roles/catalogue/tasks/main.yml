@@ -46,7 +46,7 @@
     remote_src: yes
   become_user: roboshop
 
-- name:Install Nodejs Dependencies.
+- name: Install Nodejs Dependencies.
   community.general.npm:
     path: /home/roboshop/catalogue
   become_user: roboshop

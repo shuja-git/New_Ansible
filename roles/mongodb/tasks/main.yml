@@ -28,7 +28,7 @@
 
 - name: Install Mongodb
   ansible.builtin.yum:
-    name: mmongodb-org
+    name: mongodb-org
     state: installed
 
 - name: replace mongod conf file to listen on 0.0.0.0

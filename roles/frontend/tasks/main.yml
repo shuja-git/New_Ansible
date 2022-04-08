@@ -1,29 +1,12 @@
-# systemctl enable nginx
-# systemctl start nginx
-#
-#  # cd /usr/share/nginx/html
-#  # rm -rf *
-
-#  # mv frontend-main/* .
-#  # mv static/* .
-#  # rm -rf frontend-master static README.md
-#  # mv localhost.conf /etc/nginx/default.d/roboshop.conf
-#  Finally restart the service once to effect the changes.
-
-# systemctl restart nginx
-
-
-#---------------------------------------
 - name: Install Nginx
   ansible.builtin.yum:
     name: nginx
     state: installed
 
-- name: Download and Unzip the Frontend content
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes
+- name: Download MongDB Schema files
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: download
 
 
 - name: Remove old HTML content
@@ -47,3 +30,4 @@
     name: nginx
     state: restarted
     enabled: yes
+

@@ -25,3 +25,17 @@
   tags: REDIS
   roles:
     - redis
+
+- name: User setup
+  hosts: USER
+  become: yes
+  tags: USER
+  roles:
+    - user
+
+- name: Cart setup
+  hosts: CART
+  become: yes
+  tags: CART
+  roles:
+    - cart

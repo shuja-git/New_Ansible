@@ -3,6 +3,7 @@
   vars:
     abc: ABC
     val: 50
+    apply: true
   tasks:
     - name: condition with string
       debug:
@@ -21,3 +22,9 @@
       debug:
         msg: "  less than {{val}}"
       when: val | int < 50
+
+    - name: condition on boolean
+        debug:
+          msg: "applying"
+        when: apply
+

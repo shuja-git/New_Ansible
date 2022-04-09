@@ -21,6 +21,7 @@
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+    backup: yes
 
 - name: Start mongod service
   ansible.builtin.systemd:

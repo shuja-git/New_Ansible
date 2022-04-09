@@ -1,0 +1,9 @@
+- name: demo on condition
+  hosts: localhost
+  vars:
+    abc: ABC
+  tasks:
+    - name: condition with string
+      debug:
+        msg: "abc = ABC "
+      when abc == "ABC"

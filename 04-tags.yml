@@ -16,15 +16,15 @@
 - name: Demo of tags on Play level
   hosts: localhost
   tags: play2
-    tasks:
-        - name: frontend task
-          debug:
-            msg: Hello from frontend
-          tags: frontend
-            - name: catalogue task
-              debug:
-                msg: Hello from catalogue
-              tags: catalogue
-            - name: common task
-              debug:
-                msg: Hello from common
+  tasks:
+    - name: frontend task
+      debug:
+        msg: Hello from frontend
+      tags: frontend
+    - name: catalogue task
+      debug:
+        msg: Hello from catalogue
+      tags: catalogue
+    - name: common task
+      debug:
+        msg: Hello from common

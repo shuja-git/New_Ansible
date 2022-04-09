@@ -16,4 +16,4 @@
     - name: condition with numbers
       debug:
         msg: " 50 greater than or equal"
-      when: val > 50
+      when: val | int > 50

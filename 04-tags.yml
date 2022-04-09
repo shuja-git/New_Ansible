@@ -9,3 +9,7 @@
       debug:
         msg: Hello from catalogue
       tags: catalogue
+    - name: common task
+      debug:
+        msg: Hello from common
+

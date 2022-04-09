@@ -7,3 +7,7 @@
       debug:
         msg: "abc = ABC "
       when: abc == "ABC"
+    - name: condition with string
+      debug:
+        msg: "abc = abc "
+      when: abc == "abc"

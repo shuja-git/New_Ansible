@@ -28,3 +28,8 @@
         msg: "applying"
       when: apply | bool
 
+    - name: multiple conditions
+      debug:
+        msg: "abc==ABC and val==50"
+      when: abc==ABC and val==50
+

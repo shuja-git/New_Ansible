@@ -24,7 +24,7 @@
       when: val | int < 50
 
     - name: condition on boolean
-        debug:
-          msg: "applying"
-        when: apply
+      debug:
+        msg: "applying"
+      when: apply
 

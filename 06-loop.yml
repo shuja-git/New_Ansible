@@ -1,0 +1,7 @@
+- name: demo on loop
+  hosts: localhost
+  vars:
+    fruits: [ "Apple","Banana","Mango","Pineaple"]
+  tasks:
+    debug:
+      msg: "{{item}}"

@@ -3,5 +3,8 @@
   vars:
     fruits: [ "Apple","Banana","Mango","Pineaple"]
   tasks:
-  debug:
-      msg: "{{item}}"
+    - name: print fruit name
+      loop: "{{fruits}}"
+      debug:
+        msg: "{{item}}"
+

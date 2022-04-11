@@ -25,12 +25,12 @@
        -  https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm
      state: present
 
-
-- name: Start Rabbitmq Service
+- name: Start RabbitMQ Service
   ansible.builtin.systemd:
-    name:  rabbitmq-server
-    status: restarted
+    name: rabbitmq-server
+    state: started
     enabled: yes
+
 
 - community.rabbitmq.rabbitmq_user:
     user: roboshop

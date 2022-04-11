@@ -3,5 +3,5 @@
   vars:
     fruits: [ "Apple","Banana","Mango","Pineaple"]
   tasks:
-    debug:
+  debug:
       msg: "{{item}}"

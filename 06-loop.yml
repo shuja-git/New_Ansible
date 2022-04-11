@@ -19,6 +19,6 @@
     - name: print fruit cost
       loop: "{{fruits_cost}}"
       debug:
-        msg: "fruit name= {{item.name}}" "fruit cost={{item.name}}"
+        msg: "fruit name= {{item.name}} fruit cost={{item.name}}"
 
 

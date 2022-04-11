@@ -1,0 +1,32 @@
+- name: Install Maven Service
+  ansible.builtin.yum:
+    name:
+      - maven
+    state: installed
+
+
+- name: Application user setup and download app file
+  import_tasks: app-user-setup.yml
+
+- name: Install npm
+  ansible.builtin.yum:
+    name: npm
+    state: installed
+
+
+- name: Install Nodejs Dependencies.
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+- name: Update {{COMPONENT}} systemd file
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Start {{COMPONENT}} service
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: yes

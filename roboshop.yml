@@ -47,3 +47,9 @@
   roles:
     - mysql
 
+- name: SHIPPING setup
+  hosts: SHIPPING
+  become: yes
+  tags: SHIPPING
+  roles:
+    - shipping

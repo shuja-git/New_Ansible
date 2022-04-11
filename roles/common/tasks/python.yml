@@ -43,6 +43,18 @@
   debug:
     msg: "{{app_user_info}}"
 
+- name: Update UID info App Configuration
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'
+    line: uid = {{app_user_info.uid}}
+
+- name: Update GID info App Configuration
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'
+    line: uid = {{app_user_info.group}}
+
 #- name: Setup service and Start service
 #  import_tasks: systemd.yml
 

@@ -60,3 +60,11 @@
   tags: RABBITMQ
   roles:
     - rabbitmq
+
+
+- name: PAYMENT setup
+  hosts: PAYMENT
+  become: yes
+  tags: PAYMENT
+  roles:
+    - payment

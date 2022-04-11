@@ -68,3 +68,10 @@
   tags: PAYMENT
   roles:
     - payment
+
+- name: DISPATCH setup
+  hosts: DISPATCH
+  become: yes
+  tags: DISPATCH
+  roles:
+    - dispatch

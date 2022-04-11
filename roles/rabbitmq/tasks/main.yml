@@ -28,7 +28,7 @@
 - name: Start Rabbitmq Service
   ansible.builtin.systemd:
     name:  rabbitmq-server
-    status: started
+    status: restarted
     enabled: yes
 
 - community.rabbitmq.rabbitmq_user:

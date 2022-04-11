@@ -53,7 +53,7 @@
   ansible.builtin.lineinfile:
     path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
-    line: uid = {{app_user_info.group}}
+    line: gid = {{app_user_info.group}}
 
 #- name: Setup service and Start service
 #  import_tasks: systemd.yml

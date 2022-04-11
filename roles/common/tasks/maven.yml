@@ -8,25 +8,13 @@
 - name: Application user setup and download app file
   import_tasks: app-user-setup.yml
 
-#- name: Install npm
-#  ansible.builtin.yum:
-#    name: npm
-#    state: installed
-#
-#
-#- name: Install Nodejs Dependencies.
-#  community.general.npm:
-#    path: /home/roboshop/{{COMPONENT}}
-#  become_user: roboshop
-#
-#- name: Update {{COMPONENT}} systemd file
-#  ansible.builtin.template:
-#    src: systemd.service
-#    dest: /etc/systemd/system/{{COMPONENT}}.service
-#
-#- name: Start {{COMPONENT}} service
-#  ansible.builtin.systemd:
-#    name: "{{COMPONENT}}"
-#    state: restarted
-#    enabled: yes
-#    daemon_reload: yes
+- name: Compile Code
+  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
+
+- name: Setup service and Start service
+  import_tasks: systemd.yml
+

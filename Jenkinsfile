@@ -1,9 +1,9 @@
 pipeline {
-agent any
+agent { label 'WORKSTATION' }
 stages {
 stage("Ansible Playbook Run"){
 steps{
-   sh "echo hello"
+   sh "ansible-playbook 07-parallel.yml"
 }
 }
 }

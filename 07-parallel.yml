@@ -1,12 +1,12 @@
-- name: parallel running tasks
+- name: Play1
   hosts: all
   strategy: free
   tasks:
-    - name: sleep for 5 s
+    - name: Sleep for 10 s
       shell: sleep 5
       async: 45
       poll: 0
-    - name: sleep for another 5 s
+    - name: Sleep for another 10 s
       shell: sleep 5
       async: 45
       poll: 0

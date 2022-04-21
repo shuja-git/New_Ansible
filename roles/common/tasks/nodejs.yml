@@ -34,8 +34,10 @@
 #---------
 - name: Install npm
   ansible.builtin.yum:
-    name: npm
-    state: installed
+      name:
+        - nodejs
+        - npm
+      state: installed
 
 
 - name: Install Nodejs Dependencies.

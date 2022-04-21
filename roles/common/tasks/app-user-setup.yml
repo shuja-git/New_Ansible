@@ -14,6 +14,13 @@
     path: /home/roboshop/{{COMPONENT}}
     state: absent
 
+- name: Create App Dir
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+  become_user: roboshop
+
+
 - name: Unzip {{COMPONENT}}
   ansible.builtin.unarchive:
     src: /tmp/{{COMPONENT}}-{{APP_VERSION}}.zip
@@ -23,11 +30,6 @@
 
 
 
-#- name: Create App Dir
-#  ansible.builtin.file:
-#    path: /home/roboshop/{{COMPONENT}}
-#    state: directory
-#  become_user: roboshop
 
 #- name: Copy App Content
 #  ansible.builtin.copy:

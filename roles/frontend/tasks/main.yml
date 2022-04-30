@@ -3,7 +3,7 @@
     name: nginx
     state: installed
 
-- name: Download MongDB Schema files
+- name: Download and Unzip the Frontend Content
   ansible.builtin.import_role:
     name: common
     tasks_from: download
@@ -14,11 +14,23 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: Copy HTML Files
-  ansible.builtin.copy:
-    src: /tmp/frontend-main/static/
+#- name: Copy HTML Files
+#  ansible.builtin.copy:
+#    src: /tmp/frontend-main/static/
+#    dest: /usr/share/nginx/html/
+#    remote_src: yes
+
+- name: Create HTML Directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
+
+- name: Unzip {{COMPONENT}}
+  ansible.builtin.unarchive:
+    src: /tmp/{{COMPONENT}}-{{APP_VERSION}}.zip
     dest: /usr/share/nginx/html/
     remote_src: yes
+
 
 - name: copy roboshop Reverse Proxy configuration file
   ansible.builtin.template:
